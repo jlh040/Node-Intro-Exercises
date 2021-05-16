@@ -10,5 +10,5 @@
 
 #### Technicalities
 
-- To get this code onto your machine first run: `git clone https://github.com/jlh040/Node-Intro-Exercises.git`
+- To get this code onto your machine, first run: `git clone https://github.com/jlh040/Node-Intro-Exercises.git`
 - Then, assuming you have node installed, run: `npm install` to download the dependencies.
