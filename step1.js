@@ -3,7 +3,7 @@ const fs = require('fs');
 const cat = path => {
     fs.readFile(path, 'utf8', (err, data) => {
         if (err) {
-            console.log('Something went wrong.');
+            console.log(`Error reading ${path}:`, err);
             process.exit(1);
         }
         else {
@@ -12,4 +12,8 @@ const cat = path => {
     })
 }
 
-console.log(cat('one.txt'))
+const catCommand = () => {
+    cat(process.argv[2]);
+}
+
+catCommand()
