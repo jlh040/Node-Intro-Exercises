@@ -1,0 +1,19 @@
+{
+  "name": "node-intro",
+  "version": "1.0.0",
+  "description": "Some node practice exercises",
+  "main": "step1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlh040/Node-Intro-Exercises.git"
+  },
+  "author": "Jeff Hall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlh040/Node-Intro-Exercises/issues"
+  },
+  "homepage": "https://github.com/jlh040/Node-Intro-Exercises#readme"
+}
