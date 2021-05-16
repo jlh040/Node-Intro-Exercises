@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jlh040/Node-Intro-Exercises/issues"
   },
-  "homepage": "https://github.com/jlh040/Node-Intro-Exercises#readme"
+  "homepage": "https://github.com/jlh040/Node-Intro-Exercises#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
