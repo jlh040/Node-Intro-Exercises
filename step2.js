@@ -1,4 +1,5 @@
 const fs = require('fs');
+const axios = require('axios');
 
 const cat = path => {
     fs.readFile(path, 'utf8', (err, data) => {
@@ -10,6 +11,11 @@ const cat = path => {
             console.log(data);
         }
     })
+}
+
+async function webcat(url) {
+    const resp = await axios.get(url);
+    console.log(resp['data']);
 }
 
 const catCommand = () => {
