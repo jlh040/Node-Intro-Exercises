@@ -18,8 +18,19 @@ async function webcat(url) {
     console.log(resp['data']);
 }
 
-const catCommand = () => {
-    cat(process.argv[2]);
+const nodeCat = () => {
+    let arg = process.argv[2];
+    if (isURL(arg)) {
+        webcat(arg);
+    } else{
+        cat(arg);
+    }
 }
 
-catCommand()
+function isURL(arg) {
+    if (arg.includes('http://') || arg.includes('.com')) {
+        return true;
+    }
+}
+
+nodeCat()
