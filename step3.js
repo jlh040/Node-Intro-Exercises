@@ -41,28 +41,19 @@ const isURL = arg => {
     }
 }
 
-async function write(writeTo, readFrom) {
+function write(writeTo, readFrom) {
     if (isURL(readFrom)) {
-        fs.writeFile(writeTo, await getTextFromURL(readFrom), 'utf8', err => {
-            if (err) {
-                console.log(`Couldn't write ${writeTo}: ${err}`);
-                process.exit(1)
-            }
-        })
+        fsWrite(writeTo, readFrom, getTextFromURL)
     } 
     else {
-    fs.writeFile(writeTo, await getTextFromFile(readFrom), 'utf8', err => {
-        if (err) {
-            console.log(`Couldn't write ${writeTo}: ${err}`);
-            process.exit(1);
-        }
-    })}
+        fsWrite(writeTo, readFrom, getTextFromFile)
+    }
 }
 
 function getTextFromFile(path) {
     return new Promise((resolve, reject) => fs.readFile(path, 'utf8', (err, data) => {
         if (err) {
-            console.log(`Could not read from ${path}: ${err}`)
+            console.log(`Couldn't write ${path}: ${err}`)
             process.exit(1)
         }
         resolve(data);
@@ -76,6 +67,16 @@ function getTextFromURL(url) {
             resolve(resp['data']);
         } catch(e) {
             console.log(`Error fetching ${url}: ${e}`)
+            process.exit(1);
+        }
+    })
+}
+
+async function fsWrite(writeTo, readFrom, func) {
+    fs.writeFile(writeTo, await func(readFrom), 'utf8', err => {
+        if (err) {
+            console.log(`Couldn't write ${writeTo}: ${err}`);
+            process.exit(1)
         }
     })
 }
