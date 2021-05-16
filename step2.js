@@ -14,8 +14,12 @@ const cat = path => {
 }
 
 async function webcat(url) {
-    const resp = await axios.get(url);
-    console.log(resp['data']);
+    try {
+        const resp = await axios.get(url);
+        console.log(resp['data']);
+    } catch(e) {
+        console.log(`Error fetching ${url}: ${e}`)
+    }
 }
 
 const nodeCat = () => {
